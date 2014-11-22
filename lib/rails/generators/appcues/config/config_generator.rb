@@ -36,7 +36,6 @@ any Ruby code, e.g. 'current_customer', '@admin', etc.:
 
         template("appcues.rb.erb", "config/initializers/appcues.rb")
       end
-
     end
   end
 end
