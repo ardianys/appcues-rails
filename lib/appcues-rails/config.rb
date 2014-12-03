@@ -80,7 +80,7 @@ module AppcuesRails
     end
 
     config_accessor :appcues_id
-    config_accessor :library_url
+    config_accessor :cdn_domain
     config_accessor :enabled_environments, &ARRAY_VALIDATOR
 
     config_group :user do
@@ -89,6 +89,5 @@ module AppcuesRails
       config_accessor :model, &IS_PROC_VALIDATOR
       config_accessor :custom_data, &CUSTOM_DATA_VALIDATOR
     end
-
   end
 end
