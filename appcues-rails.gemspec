@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'appcues-rails'
-  s.version     = '0.0.0'
-  s.date        = '2014-11-21'
+  s.version     = '0.0.1'
+  s.date        = '2015-02-16'
   s.summary     = 'Appcues Rails'
   s.description = 'The easiest way to install Appcues in a rails app.'
   s.authors     = ['Jonathan Kim', 'Spencer Davis']

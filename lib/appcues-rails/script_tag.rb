@@ -20,13 +20,12 @@ module AppcuesRails
     end
 
     def output
-      user_json = ActiveSupport::JSON.encode(user_details.except(:email, :user_id, :appcues_id)).gsub('<', '\u003C')
+      user_json = ActiveSupport::JSON.encode(user_details.except(:user_id, :appcues_id)).gsub('<', '\u003C')
       str = <<-APPCUES_SCRIPT
-        <link rel="stylesheet" type="text/css" href="//#{AppcuesRails.config.cdn_domain || 'd2dubfq97s02eu.cloudfront.net'}/appcues.min.css">
-        <script src='//#{AppcuesRails.config.cdn_domain || 'd2dubfq97s02eu.cloudfront.net'}/appcues.min.js?i=#{user_details[:appcues_id]}"}' data-appcues-id='#{user_details[:appcues_id]}' data-user-id='#{user_details[:user_id]}' data-user-email='#{user_details[:email]}'></script>
+        <link rel="stylesheet" type="text/css" href="//#{AppcuesRails.config.cdn_domain || 'fast.appcues.com'}/appcues.css">
+        <script src="//#{AppcuesRails.config.cdn_domain || 'fast.appcues.com'}/#{user_details[:appcues_id]}.js" id="appcues-script"></script>
         <script>
-          Appcues.identify(#{user_json});
-          Appcues.init();
+          Appcues.identify('#{user_details[:user_id]}', #{user_json});
         </script>
       APPCUES_SCRIPT
 
